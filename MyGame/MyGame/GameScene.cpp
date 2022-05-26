@@ -1,5 +1,5 @@
 #include "GameScene.h"
-
+#include "UsePens.h"
 #include "MancalaBoard.h"
 #include "Pen.h"
 GameScene::GameScene()
@@ -9,6 +9,9 @@ GameScene::GameScene()
 
 	PenPtr PenSpawner = std::make_shared<Pen>();
 	addGameObject(PenSpawner);
+
+	UsePensPtr UsePensSpawner = std::make_shared<UsePens>();
+	addGameObject(UsePensSpawner);
 
 }
 

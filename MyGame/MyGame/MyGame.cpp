@@ -1,4 +1,4 @@
-
+   
 /*
 Maintenance log:
 6/6/2021: Ship now changes sprite with damage level.
