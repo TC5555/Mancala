@@ -26,7 +26,7 @@ class GameScene : public Scene {
 private:
 	int score_ = 0 ;
 	int lives_ = 5;
-	bool user_ = false;
+	bool user_ = true;
 };
 
 typedef std::shared_ptr<GameScene> GameScenePtr;
