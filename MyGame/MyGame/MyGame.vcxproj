@@ -91,6 +91,7 @@
     <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="MyGame.cpp" />
     <ClCompile Include="Pen.cpp" />
+    <ClCompile Include="PenSpawner.cpp" />
     <ClCompile Include="Rock.cpp" />
     <ClCompile Include="Score.cpp" />
     <ClCompile Include="ScrollingBackground.cpp" />
@@ -113,6 +114,7 @@
     <ClInclude Include="MancalaBoard.h" />
     <ClInclude Include="Laser.h" />
     <ClInclude Include="Pen.h" />
+    <ClInclude Include="PenSpawner.h" />
     <ClInclude Include="Rock.h" />
     <ClInclude Include="Score.h" />
     <ClInclude Include="ScrollingBackground.h" />

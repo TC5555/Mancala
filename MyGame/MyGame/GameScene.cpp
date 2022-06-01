@@ -1,17 +1,14 @@
 #include "GameScene.h"
-#include "UsePens.h"
 #include "MancalaBoard.h"
-#include "Pen.h"
+#include "PenSpawner.h"
+
 GameScene::GameScene()
 {
 	MancalaBoardPtr MancalaBoardSpawner = std::make_shared<MancalaBoard>();
 	addGameObject(MancalaBoardSpawner);
 
-	PenPtr PenSpawner = std::make_shared<Pen>();
+	PenSpawnerPtr PenSpawner = std::make_shared<PenSpawner>();
 	addGameObject(PenSpawner);
-
-	UsePensPtr UsePensSpawner = std::make_shared<UsePens>();
-	addGameObject(UsePensSpawner);
 
 }
 

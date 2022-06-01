@@ -4,107 +4,36 @@
 
 
 
-UsePens::UsePens()
+UsePens::UsePens(sf::Vector2f pos)
 
 {
-
-   
+    sprite.setTexture(GAME.getTexture("Resources/UsePen.png"));
+    assignTag("UsePens");
+    sprite.setPosition(pos);
 
 
 }
 
 void UsePens::draw()
-
 {
-    User1Sprite1.setTexture(GAME.getTexture("Resources/UsePen.png"));
-    User1Sprite1.setPosition(sf::Vector2f(135, 100));
-    GAME.getRenderWindow().draw(User1Sprite1);
-
-
-
-    User1Sprite2.setTexture(GAME.getTexture("Resources/UsePen.png"));
-    User1Sprite2.setPosition(sf::Vector2f(220, 100));
-    GAME.getRenderWindow().draw(User1Sprite2);
-
-
-
-    User1Sprite3.setTexture(GAME.getTexture("Resources/UsePen.png"));
-    User1Sprite3.setPosition(sf::Vector2f(305, 100));
-    GAME.getRenderWindow().draw(User1Sprite3);
-
-
-
-    User1Sprite4.setTexture(GAME.getTexture("Resources/UsePen.png"));
-    User1Sprite4.setPosition(sf::Vector2f(390, 100));
-    GAME.getRenderWindow().draw(User1Sprite4);
-    
-
-
-    User1Sprite5.setTexture(GAME.getTexture("Resources/UsePen.png"));
-    User1Sprite5.setPosition(sf::Vector2f(475, 100));
-    GAME.getRenderWindow().draw(User1Sprite5);
-
-
-
-    User1Sprite6.setTexture(GAME.getTexture("Resources/UsePen.png"));
-    User1Sprite6.setPosition(sf::Vector2f(560, 100));
-    GAME.getRenderWindow().draw(User1Sprite6);
-
-
-    ////////////////////////////////////////////////////////////////////////
-
-
-    User2Sprite1.setTexture(GAME.getTexture("Resources/UsePen.png"));
-    User2Sprite1.setPosition(sf::Vector2f(135, 425));
-    GAME.getRenderWindow().draw(User2Sprite1);
-
-
-
-    User2Sprite2.setTexture(GAME.getTexture("Resources/UsePen.png"));
-    User2Sprite2.setPosition(sf::Vector2f(220, 425));
-    GAME.getRenderWindow().draw(User2Sprite2);
-
-
-
-    User2Sprite3.setTexture(GAME.getTexture("Resources/UsePen.png"));
-    User2Sprite3.setPosition(sf::Vector2f(305, 425));
-    GAME.getRenderWindow().draw(User2Sprite3);
-
-
-
-    User2Sprite4.setTexture(GAME.getTexture("Resources/UsePen.png"));
-    User2Sprite4.setPosition(sf::Vector2f(390, 425));
-    GAME.getRenderWindow().draw(User2Sprite4);
-
-
-
-    User2Sprite5.setTexture(GAME.getTexture("Resources/UsePen.png"));
-    User2Sprite5.setPosition(sf::Vector2f(475, 425));
-    GAME.getRenderWindow().draw(User2Sprite5);
-
-
-
-    User2Sprite6.setTexture(GAME.getTexture("Resources/UsePen.png"));
-    User2Sprite6.setPosition(sf::Vector2f(560, 425));
-    GAME.getRenderWindow().draw(User2Sprite6);
-
-    /////////////////////////////////////////////////////////////////
-
+    GAME.getRenderWindow().draw(sprite);
 
 }
 
+void UsePens::MUpdate() {
+    !Mdisable;
+}
+
+
 void UsePens::update(sf::Time& elapsed) {
 
- 
-
-    if(sf::Mouse::isButtonPressed(sf::Mouse::Left)){ 
+    if(sf::Mouse::isButtonPressed(sf::Mouse::Left)&& Mdisable){ 
         GameScene& scene = (GameScene&)GAME.getCurrentScene();
         if (scene.getUser()) {
             if (User1Sprite1.getGlobalBounds().contains((sf::Vector2f)sf::Mouse::getPosition(GAME.getRenderWindow()))) {
-
-
-                scene.changeUser();
-                printf("as");
+                MUpdate();
+                pressed = 1;
+                setCollisionCheckEnabled(true);
             }
             else if (User1Sprite2.getGlobalBounds().contains((sf::Vector2f)sf::Mouse::getPosition(GAME.getRenderWindow()))) {
                 scene.changeUser();
@@ -156,3 +85,42 @@ void UsePens::update(sf::Time& elapsed) {
         }
     }
 
+void UsePens::handleCollision(GameObject& otherGameObject)
+{
+    if (otherGameObject.hasTag("ship"))
+    {
+
+        GameScene& scene = (GameScene&)GAME.getCurrentScene();
+        scene.decreaseLives();
+
+        // Added to Update the damage level of the ship to show a more damages show on next update.
+        //((Ship&)otherGameObject).updateDamageLevel(scene.getLives());
+        makeDead();
+    }
+    if (otherGameObject.hasTag("laser"))
+    {
+       /* sf::Vector2f pos = sprite.getPosition();
+        float x = pos.x;
+        float y = pos.y;
+        sf::FloatRect bounds = sprite.getGlobalBounds();
+        float explosionX;
+        float explosionY;*/
+
+
+        //	GAME.getCurrentScene().addGameObject(explosion);
+        GameScene& scene = (GameScene&)GAME.getCurrentScene();
+        scene.increaseScore();
+        otherGameObject.makeDead();
+        makeDead();
+
+        if (scene.getScore() == 20)
+        {
+            scene.BigMeteorUnlock();
+        }
+
+        if (scene.getScore() == 50)
+        {
+            scene.HealthPackUnlock();
+        }
+    }
+}

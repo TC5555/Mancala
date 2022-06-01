@@ -27,6 +27,7 @@
     <ClCompile Include="Pen.cpp" />
     <ClCompile Include="Rock.cpp" />
     <ClCompile Include="UsePens.cpp" />
+    <ClCompile Include="PenSpawner.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\AnimatedSprite.h">
@@ -57,6 +58,7 @@
     <ClInclude Include="Pen.h" />
     <ClInclude Include="Rock.h" />
     <ClInclude Include="UsePens.h" />
+    <ClInclude Include="PenSpawner.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Engine">

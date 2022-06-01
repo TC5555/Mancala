@@ -4,7 +4,7 @@ class Pen : public GameObject
 {
 public:
 	// Creates our HealthPack.
-	Pen();
+	Pen(sf::Vector2f pos);
 	// Functions overridden from GameObject:
 	void draw();
 	int getPool();

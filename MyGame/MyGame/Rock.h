@@ -9,15 +9,16 @@ public:
 
     // Creates our HealthPack.
 
-    Rock();
+    Rock(sf::Vector2f pos);
 
     // Functions overridden from GameObject:
 
     void draw();
 
-    int getPool();
+    void update(sf::Time& elapsed);
+    sf::FloatRect getCollisionRect();
+    void handleCollision(GameObject& otherGameObject);
 
-   
 private:
 
     sf::Sprite sprite;
