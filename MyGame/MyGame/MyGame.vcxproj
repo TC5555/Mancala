@@ -91,7 +91,6 @@
     <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="MyGame.cpp" />
     <ClCompile Include="Pen.cpp" />
-    <ClCompile Include="PenSpawner.cpp" />
     <ClCompile Include="Rock.cpp" />
     <ClCompile Include="Score.cpp" />
     <ClCompile Include="ScrollingBackground.cpp" />
@@ -100,7 +99,7 @@
     <ClCompile Include="MancalaBoard.cpp" />
     <ClCompile Include="StartMessage.cpp" />
     <ClCompile Include="StartScene.cpp" />
-    <ClCompile Include="UsePens.cpp" />
+    <ClCompile Include="UsePen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\AnimatedSprite.h" />
@@ -114,14 +113,13 @@
     <ClInclude Include="MancalaBoard.h" />
     <ClInclude Include="Laser.h" />
     <ClInclude Include="Pen.h" />
-    <ClInclude Include="PenSpawner.h" />
     <ClInclude Include="Rock.h" />
     <ClInclude Include="Score.h" />
     <ClInclude Include="ScrollingBackground.h" />
     <ClInclude Include="Ship.h" />
     <ClInclude Include="StartMessage.h" />
     <ClInclude Include="StartScene.h" />
-    <ClInclude Include="UsePens.h" />
+    <ClInclude Include="UsePen.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\README.md" />

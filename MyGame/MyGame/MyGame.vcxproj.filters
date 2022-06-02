@@ -26,8 +26,7 @@
     <ClCompile Include="MancalaBoard.cpp" />
     <ClCompile Include="Pen.cpp" />
     <ClCompile Include="Rock.cpp" />
-    <ClCompile Include="UsePens.cpp" />
-    <ClCompile Include="PenSpawner.cpp" />
+    <ClCompile Include="UsePen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\AnimatedSprite.h">
@@ -57,8 +56,7 @@
     <ClInclude Include="MancalaBoard.h" />
     <ClInclude Include="Pen.h" />
     <ClInclude Include="Rock.h" />
-    <ClInclude Include="UsePens.h" />
-    <ClInclude Include="PenSpawner.h" />
+    <ClInclude Include="UsePen.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Engine">

@@ -17,10 +17,11 @@ public:
 
     void update(sf::Time& elapsed);
     sf::FloatRect getCollisionRect();
-    void handleCollision(GameObject& otherGameObject);
+    void UpdateMove();
+    //void handleCollision(GameObject& otherGameObject);
 
 private:
-
+    bool move = false;
     sf::Sprite sprite;
 
 

@@ -1,7 +1,7 @@
 #pragma once
 #include "Engine/GameEngine.h"
 
-class UsePens : public GameObject
+class UsePen : public GameObject
 
 {
 
@@ -9,7 +9,7 @@ public:
 
     // Creates our HealthPack.
 
-    UsePens(sf::Vector2f pos);
+    UsePen(sf::Vector2f pos);
 
     // Functions overridden from GameObject:
 
@@ -17,9 +17,10 @@ public:
 
 
     void MUpdate();
-    void UsePens::update(sf::Time& elapsed);
+    void UsePen::update(sf::Time& elapsed);
     void handleCollision(GameObject& otherGameObject);
-
+    sf::FloatRect getCollisionRect();
+  
 private:
     bool Mdisable = false;
     sf::Sprite sprite;
@@ -28,4 +29,4 @@ private:
 
 };
 
-typedef std::shared_ptr<UsePens> UsePensPtr;
+typedef std::shared_ptr<UsePen> UsePenPtr;
