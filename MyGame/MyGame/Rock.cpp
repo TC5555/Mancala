@@ -23,8 +23,9 @@ void Rock::draw()
 
 void Rock::UpdateMove()
 {
-	!move;
 	makeDead();
+	!move;
+	assignTag("movingRock");
 }
 
 

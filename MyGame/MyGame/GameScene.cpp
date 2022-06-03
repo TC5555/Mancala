@@ -42,28 +42,6 @@ GameScene::GameScene()
 	addGameObject(MakeUsePens);
 	//////////////////////////////////////////////////////////////////
 
-	RockPtr MakeRock;
-	for (int i = 0; i < 6; i++) {
-		MakeRock = std::make_shared<Rock>(sf::Vector2f(130 + 100 * i, 70));
-		addGameObject(MakeRock);
-		MakeRock = std::make_shared<Rock>(sf::Vector2f(130 + 100 * i, 90));
-		addGameObject(MakeRock);
-		MakeRock = std::make_shared<Rock>(sf::Vector2f(130 + 100 * i, 110));
-		addGameObject(MakeRock);
-		MakeRock = std::make_shared<Rock>(sf::Vector2f(130 + 100 * i, 130));
-		addGameObject(MakeRock);
-	}
-
-	for (int i = 0; i < 6; i++) {
-		MakeRock = std::make_shared<Rock>(sf::Vector2f(130 + 100 * i, 290));
-		addGameObject(MakeRock);
-		MakeRock = std::make_shared<Rock>(sf::Vector2f(130 + 100 * i, 310));
-		addGameObject(MakeRock);
-		MakeRock = std::make_shared<Rock>(sf::Vector2f(130 + 100 * i, 330));
-		addGameObject(MakeRock);
-		MakeRock = std::make_shared<Rock>(sf::Vector2f(130 + 100 * i, 350));
-		addGameObject(MakeRock);
-	}
 } 
 
 bool GameScene::getUser()

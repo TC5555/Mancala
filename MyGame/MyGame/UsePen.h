@@ -1,6 +1,6 @@
 #pragma once
 #include "Engine/GameEngine.h"
-
+#include "Rock.h" 
 class UsePen : public GameObject
 
 {
@@ -25,8 +25,8 @@ private:
     bool Mdisable = false;
     sf::Sprite sprite;
     int pressed = NULL;
-
-
+    std::vector<RockPtr> Rocks;
+    int pool = 4;
 };
 
 typedef std::shared_ptr<UsePen> UsePenPtr;
