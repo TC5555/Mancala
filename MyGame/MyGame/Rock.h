@@ -17,13 +17,13 @@ public:
 
     void update(sf::Time& elapsed);
     sf::FloatRect getCollisionRect();
-    void UpdateMove();
+    void UpdateMove(int newMove);
     //void handleCollision(GameObject& otherGameObject);
 
 private:
-    bool move = false;
+    sf::Vector2f pos;
     sf::Sprite sprite;
-
+    int move = 0;
 
 };
 

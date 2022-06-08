@@ -28,17 +28,14 @@ UsePen::UsePen(sf::Vector2f pos)
     MakeRock = std::make_shared<Rock>(sf::Vector2f(pos.x + 40, pos.y + 100));
     Rocks.push_back(MakeRock);
 
+
 }
 
 void UsePen::draw()
 {
     GAME.getRenderWindow().draw(sprite);
-
-    Scene& scene = GAME.getCurrentScene();
-    scene.addGameObject(Rocks.at(Rocks.size() - 1));
-    scene.addGameObject(Rocks.at(Rocks.size() - 2));
-    scene.addGameObject(Rocks.at(Rocks.size() - 3));
-    scene.addGameObject(Rocks.at(Rocks.size() - 4));
+   
+   
 }
 
 void UsePen::MUpdate() {
@@ -47,11 +44,24 @@ void UsePen::MUpdate() {
 
 
 void UsePen::update(sf::Time& elapsed) {
+    Scene& scene = GAME.getCurrentScene();
+    if (!rockmade) {
+     
+        scene.addGameObject(Rocks.at(Rocks.size() - 1));
+        scene.addGameObject(Rocks.at(Rocks.size() - 2));
+        scene.addGameObject(Rocks.at(Rocks.size() - 3));
+        scene.addGameObject(Rocks.at(Rocks.size() - 4));
+        rockmade = true;
+    }
+    if(Game){}
     if (sprite.getGlobalBounds().contains((sf::Vector2f)sf::Mouse::getPosition(GAME.getRenderWindow()))) {
         sprite.setTexture(GAME.getTexture("Resources/UsePenHighlighted.png"));
         if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-            setCollisionCheckEnabled(false);
-            Rocks.at(3).get()->makeDead();
+            int i = 0;
+            while (i < Rocks.size()) {
+                Rocks.at(i)->UpdateMove(100*i + 100);
+                i++;
+            }
         }
     }
     else {

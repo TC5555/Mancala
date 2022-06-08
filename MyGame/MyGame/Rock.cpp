@@ -5,9 +5,8 @@
 
 
 Rock::Rock(sf::Vector2f pos)
-
 {
-
+	this->pos = pos;
     sprite.setTexture(GAME.getTexture("Resources/Rock.png"));
 	sprite.setPosition(pos);
 	assignTag("rock");
@@ -21,23 +20,18 @@ void Rock::draw()
 
 }
 
-void Rock::UpdateMove()
+void Rock::UpdateMove(int newMove)
 {
-	makeDead();
-	!move;
+	move = newMove;
 	assignTag("movingRock");
 }
 
 
 void Rock::update(sf::Time& elapsed) {
-	if (move) {
-		printf("hi");
+	if (move > 0) {
+		sprite.setPosition(sf::Vector2f(pos.x - .01 * move, pos.y));
+		move - 10;
 	}
-	//int msElapsed = elapsed.asMilliseconds();
-	//sf::Vector2f pos = sprite.getPosition();
-	//GameScene& scene = (GameScene&)GAME.getCurrentScene();
-
-	//sprite.setPosition(sf::Vector2f(pos.x - .1 * msElapsed, pos.y));
 }
 
 
