@@ -23,10 +23,13 @@ class GameScene : public Scene {
   void increaseLives();
   bool getUser();
   void changeUser();
+  void updateMouse();
+  bool getMouse();
 private:
 	int score_ = 0 ;
 	int lives_ = 5;
 	bool user_ = true;
+	bool mouseDisabled = false;
 };
 
 typedef std::shared_ptr<GameScene> GameScenePtr;

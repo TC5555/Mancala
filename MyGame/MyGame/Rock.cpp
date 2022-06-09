@@ -22,15 +22,21 @@ void Rock::draw()
 
 void Rock::UpdateMove(int newMove)
 {
+	if (hasTag("movingRock")) {
+		assignTag("Rock");
+	}
+	else {
 	move = newMove;
 	assignTag("movingRock");
 }
+}
+
 
 
 void Rock::update(sf::Time& elapsed) {
 	if (move > 0) {
-		sprite.setPosition(sf::Vector2f(pos.x - .01 * move, pos.y));
-		move - 10;
+		sprite.setPosition(sf::Vector2f(pos.x + move, pos.y));
+		move = 0;
 	}
 }
 

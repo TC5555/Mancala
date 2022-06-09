@@ -53,6 +53,17 @@ void GameScene::changeUser()
 	user_ = !user_;
 }
 
+bool GameScene::getMouse()
+{
+	return mouseDisabled;
+}
+
+
+void GameScene::updateMouse()
+{
+	mouseDisabled = !mouseDisabled;
+}
+
 int GameScene::getScore()
 {
 	return score_;
@@ -61,5 +72,4 @@ void GameScene::increaseScore()
 {
 	++score_;
 }
-
 

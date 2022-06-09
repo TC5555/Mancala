@@ -17,18 +17,18 @@ public:
     void draw();
 
 
-    void MUpdate();
+    void mouseUpdate();
     void UsePen::update(sf::Time& elapsed);
     void handleCollision(GameObject& otherGameObject);
     sf::FloatRect getCollisionRect();
   
 private:
-    bool Mdisable = false;
     sf::Sprite sprite;
     int pressed = NULL;
     std::vector<RockPtr> Rocks;
-    int pool = 4;
-    bool rockmade = false;
+    int rocksmade = 0;
+    sf::Vector2f pos;
+
 };
 
 typedef std::shared_ptr<UsePen> UsePenPtr;
