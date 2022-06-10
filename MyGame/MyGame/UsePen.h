@@ -28,7 +28,7 @@ private:
     std::vector<RockPtr> Rocks;
     int rocksmade = 0;
     sf::Vector2f pos;
-
+    bool clearVector = false;
 };
 
 typedef std::shared_ptr<UsePen> UsePenPtr;

@@ -44,8 +44,6 @@ void UsePen::update(sf::Time& elapsed) {
 
     GameScene& scene = (GameScene&) GAME.getCurrentScene();
     
-
-
     if (clearVector) {
         clearVector = false;
         Rocks.clear();

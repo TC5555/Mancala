@@ -8,7 +8,7 @@ Rock::Rock(sf::Vector2f pos)
 {
 	this->pos = pos;
     sprite.setTexture(GAME.getTexture("Resources/Rock.png"));
-	sprite.setPosition(pos);
+	sprite.setPosition( pos.x, pos.y);
 	assignTag("rock");
 
 }
