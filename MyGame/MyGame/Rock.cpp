@@ -20,21 +20,28 @@ void Rock::draw()
 
 }
 
-void Rock::UpdateMove(int newMove)
+void Rock::UpdateMove(int newMove, bool isFinal)
 {
-	if (hasTag("movingRock")) {
-		assignTag("Rock");
+	move = newMove;
+	if (isFinal) {
+		assignTag("movingRockFinal");
 	}
 	else {
-	move = newMove;
-	assignTag("movingRock");
+		assignTag("movingRock");
+	}
 }
+void Rock::UpdateUp() {
+	if (pos.y > 200) {
+		sprite.setPosition(sf::Vector2f(pos.x, pos.y - 180));
+	}
+	else {
+		sprite.setPosition(sf::Vector2f(pos.x, pos.y + 180));
+	}
 }
-
 
 
 void Rock::update(sf::Time& elapsed) {
-	if (move > 0) {
+	if (move != 0) {
 		sprite.setPosition(sf::Vector2f(pos.x + move, pos.y));
 		move = 0;
 	}

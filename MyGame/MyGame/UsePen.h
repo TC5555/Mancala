@@ -23,6 +23,8 @@ public:
     sf::FloatRect getCollisionRect();
   
 private:
+    sf::Text text_;
+
     sf::Sprite sprite;
     int pressed = NULL;
     std::vector<RockPtr> Rocks;

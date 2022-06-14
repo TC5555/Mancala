@@ -11,34 +11,34 @@ GameScene::GameScene()
 	/////////////////////////////////////////////////////////////////////////
 	PenPtr MakePen = std::make_shared<Pen>(sf::Vector2f(10, 50));
 	addGameObject(MakePen);
-	MakePen = std::make_shared<Pen>(sf::Vector2f(690, 50));
+	MakePen = std::make_shared<Pen>(sf::Vector2f(700, 50));
 	addGameObject(MakePen);
 	/////////////////////////////////////////////////////////////////////////
-	UsePenPtr MakeUsePens = std::make_shared<UsePen>(sf::Vector2f(110, 50));
+	UsePenPtr MakeUsePens = std::make_shared<UsePen>(sf::Vector2f(105, 50));
 	addGameObject(MakeUsePens);
-	MakeUsePens = std::make_shared<UsePen>(sf::Vector2f(210, 50));
+	MakeUsePens = std::make_shared<UsePen>(sf::Vector2f(205, 50));
 	addGameObject(MakeUsePens);
-	MakeUsePens = std::make_shared<UsePen>(sf::Vector2f(310, 50));
+	MakeUsePens = std::make_shared<UsePen>(sf::Vector2f(305, 50));
 	addGameObject(MakeUsePens);
-	MakeUsePens = std::make_shared<UsePen>(sf::Vector2f(410, 50));
+	MakeUsePens = std::make_shared<UsePen>(sf::Vector2f(405, 50));
 	addGameObject(MakeUsePens);
-	MakeUsePens = std::make_shared<UsePen>(sf::Vector2f(510, 50));
+	MakeUsePens = std::make_shared<UsePen>(sf::Vector2f(505, 50));
 	addGameObject(MakeUsePens);
-	MakeUsePens = std::make_shared<UsePen>(sf::Vector2f(610, 50));
+	MakeUsePens = std::make_shared<UsePen>(sf::Vector2f(605, 50));
 	addGameObject(MakeUsePens);
 
 
-	MakeUsePens = std::make_shared<UsePen>(sf::Vector2f(110, 270));
+	MakeUsePens = std::make_shared<UsePen>(sf::Vector2f(105, 270));
 	addGameObject(MakeUsePens);
-	MakeUsePens = std::make_shared<UsePen>(sf::Vector2f(210, 270));
+	MakeUsePens = std::make_shared<UsePen>(sf::Vector2f(205, 270));
 	addGameObject(MakeUsePens);
-	MakeUsePens = std::make_shared<UsePen>(sf::Vector2f(310, 270));
+	MakeUsePens = std::make_shared<UsePen>(sf::Vector2f(305, 270));
 	addGameObject(MakeUsePens);
-	MakeUsePens = std::make_shared<UsePen>(sf::Vector2f(410, 270));
+	MakeUsePens = std::make_shared<UsePen>(sf::Vector2f(405, 270));
 	addGameObject(MakeUsePens);
-	MakeUsePens = std::make_shared<UsePen>(sf::Vector2f(510, 270));
+	MakeUsePens = std::make_shared<UsePen>(sf::Vector2f(505, 270));
 	addGameObject(MakeUsePens);
-	MakeUsePens = std::make_shared<UsePen>(sf::Vector2f(610, 270));
+	MakeUsePens = std::make_shared<UsePen>(sf::Vector2f(605, 270));
 	addGameObject(MakeUsePens);
 	//////////////////////////////////////////////////////////////////
 
