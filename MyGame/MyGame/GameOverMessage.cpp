@@ -1,15 +1,22 @@
 #include "GameOverMessage.h"
 #include "GameScene.h"
 #include <sstream>
-GameOverMessage::GameOverMessage(int score)
+GameOverMessage::GameOverMessage(bool user)
 {
 	text_.setFont(GAME.getFont("Resources/Orbitron-VariableFont_wght.ttf"));
 	text_.setPosition(sf::Vector2f(50.0f, 50.0f));
 	text_.setCharacterSize(40);
-	text_.setFillColor(sf::Color::Red);
 	std::stringstream stream;
-	stream << "GAME OVER\n\nYOUR SCORE: " << score << "\n\nPRESS ENTER TO CONTINUE"; 
-	text_.setString(stream.str());
+	if (user) {
+		text_.setFillColor(sf::Color::Red);
+		stream << "GAME OVER\n\nUSER1 WINS\n\nPRESS ENTER TO CONTINUE";
+		text_.setString(stream.str());
+	}
+	else {
+		text_.setFillColor(sf::Color::Blue);
+		stream << "GAME OVER\n\nUSER2 WINS\n\nPRESS ENTER TO CONTINUE";
+		text_.setString(stream.str());
+	}
 }
 void GameOverMessage::draw()
 {

@@ -30,20 +30,24 @@ void Rock::UpdateMove(int newMove, bool isFinal)
 		assignTag("movingRock");
 	}
 }
-void Rock::UpdateUp() {
-	if (pos.y > 200) {
-		sprite.setPosition(sf::Vector2f(pos.x, pos.y - 180));
-	}
-	else {
-		sprite.setPosition(sf::Vector2f(pos.x, pos.y + 180));
-	}
-}
+
 
 
 void Rock::update(sf::Time& elapsed) {
 	if (move != 0) {
-		sprite.setPosition(sf::Vector2f(pos.x + move, pos.y));
-		move = 0;
+		if (pos.x > 700) {
+			sprite.setPosition(sf::Vector2f(pos.x, pos.y + 180));
+		}
+		if (pos.x < 100) {
+			sprite.setPosition(sf::Vector2f(pos.x, pos.y - 180));
+		}
+		if (pos.y < 200) {
+			sprite.setPosition(sf::Vector2f(pos.x - 100, pos.y));
+		}
+		else {
+			sprite.setPosition(sf::Vector2f(pos.x + 100, pos.y));
+		}
+		move--;
 	}
 }
 

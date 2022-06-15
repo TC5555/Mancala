@@ -24,8 +24,12 @@ class GameScene : public Scene {
   bool getUser();
   void changeUser();
   void updateMouse();
+  void emptyPens(int changeEmpty);
   bool getMouse();
+
 private:
+	int empty1 = 0;
+	int empty2 = 0;
 	int score_ = 0 ;
 	int lives_ = 5;
 	bool user_ = true;

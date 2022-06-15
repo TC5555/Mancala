@@ -4,7 +4,7 @@ class GameOverMessage : public GameObject
 {
 public:
 	// Creates the GameOverMessage instance.
-	GameOverMessage(int score);
+	GameOverMessage(bool user);
 	// Functions overriden from GameObject:
 	void draw();
 	void update(sf::Time& elapsed);

@@ -18,7 +18,7 @@ public:
     void update(sf::Time& elapsed);
     sf::FloatRect getCollisionRect();
     void UpdateMove(int newMove, bool isFinal);
-    void UpdateUp();
+
     //void handleCollision(GameObject& otherGameObject);
 
 private:

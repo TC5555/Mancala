@@ -3,6 +3,7 @@
 #include "Pen.h"
 #include "UsePen.h"
 #include "Rock.h"
+#include "GameOverScene.h"
 
 GameScene::GameScene()
 {
@@ -58,6 +59,23 @@ bool GameScene::getMouse()
 	return mouseDisabled;
 }
 
+void GameScene::emptyPens(int changeEmpty)
+{
+	if (user_) {
+		empty1 += changeEmpty;
+		if (empty1 == 6) {
+			GameOverScenePtr gameOverScene = std::make_shared<GameOverScene>(user_);
+			GAME.setScene(gameOverScene);
+		}
+	}
+	else {
+		empty2 += changeEmpty;
+		if (empty2 == 6) {
+			GameOverScenePtr gameOverScene = std::make_shared<GameOverScene>(user_);
+			GAME.setScene(gameOverScene);
+		}
+	}
+}
 
 void GameScene::updateMouse()
 {
