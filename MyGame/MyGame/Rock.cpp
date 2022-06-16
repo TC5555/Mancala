@@ -6,7 +6,6 @@
 
 Rock::Rock(sf::Vector2f pos)
 {
-	this->pos = pos;
     sprite.setTexture(GAME.getTexture("Resources/Rock.png"));
 	sprite.setPosition( pos.x, pos.y);
 	assignTag("rock");
@@ -23,32 +22,42 @@ void Rock::draw()
 void Rock::UpdateMove(int newMove, bool isFinal)
 {
 	move = newMove;
-	if (isFinal) {
-		assignTag("movingRockFinal");
-	}
-	else {
-		assignTag("movingRock");
-	}
+	isfinal = isFinal;
 }
 
 
 
 void Rock::update(sf::Time& elapsed) {
-	if (move != 0) {
-		if (pos.x > 700) {
-			sprite.setPosition(sf::Vector2f(pos.x, pos.y + 180));
-		}
-		if (pos.x < 100) {
-			sprite.setPosition(sf::Vector2f(pos.x, pos.y - 180));
-		}
-		if (pos.y < 200) {
-			sprite.setPosition(sf::Vector2f(pos.x - 100, pos.y));
+	if (move > 0) {
+		if (sprite.getPosition().y < 300) {
+			sprite.setPosition(sf::Vector2f(sprite.getPosition().x - 100, sprite.getPosition().y));
 		}
 		else {
-			sprite.setPosition(sf::Vector2f(pos.x + 100, pos.y));
+			sprite.setPosition(sf::Vector2f(sprite.getPosition().x + 100, sprite.getPosition().y));
+		}
+		if (sprite.getPosition().x > 700) {
+			sprite.setPosition(sf::Vector2f(sprite.getPosition().x, 100));
+		}
+		if (sprite.getPosition().x < 100) {
+			sprite.setPosition(sf::Vector2f(sprite.getPosition().x, 400));
 		}
 		move--;
 	}
+	if (move == 0) {
+		if (isfinal) {
+			assignTag("movingRockFinal");
+		}
+		else {
+			assignTag("movingRock");
+		}
+		move--;
+	}
+}
+
+
+sf::Vector2f Rock::getPos()
+{
+	return sprite.getPosition();
 }
 
 

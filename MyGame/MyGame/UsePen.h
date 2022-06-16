@@ -31,7 +31,7 @@ private:
     int rocksmade = 0;
     sf::Vector2f pos;
     bool clearVector = false;
-    bool newRock;
+
 };
 
 typedef std::shared_ptr<UsePen> UsePenPtr;

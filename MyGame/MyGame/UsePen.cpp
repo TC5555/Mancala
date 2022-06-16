@@ -9,7 +9,7 @@ UsePen::UsePen(sf::Vector2f pos)
     sprite.setTexture(GAME.getTexture("Resources/UsePen.png"));
     assignTag("UsePen");
     sprite.setPosition(pos);
-
+    setCollisionCheckEnabled(true);
     
    
     RockPtr MakeRock;
@@ -50,9 +50,7 @@ void UsePen::update(sf::Time& elapsed) {
 
     GameScene& scene = (GameScene&)GAME.getCurrentScene();
 
-    if (!scene.getMouse()) {
-        setCollisionCheckEnabled(true);
-    }
+
 
     std::stringstream stream;
     stream << Rocks.size();
@@ -81,13 +79,13 @@ void UsePen::update(sf::Time& elapsed) {
                 int i = 0;
                
               
-                    while (i < Rocks.size()) {
+                    while (i < Rocks.size()-1) {
 
                     Rocks.at(i)->UpdateMove(i+1, false);
                     i++;
         
                 }
-     
+                    Rocks.at(i)->UpdateMove(i + 1, true);
 
                 clearVector = true;
             }
@@ -101,12 +99,14 @@ void UsePen::update(sf::Time& elapsed) {
                 int i = 0;
 
 
-                while (i < Rocks.size()) {
+
+                while (i < Rocks.size() - 1) {
 
                     Rocks.at(i)->UpdateMove(i + 1, false);
                     i++;
 
                 }
+                Rocks.at(i)->UpdateMove(i + 1, true);
 
 
                 clearVector = true;
@@ -141,16 +141,18 @@ void UsePen::handleCollision(GameObject& otherGameObject)
 
         RockPtr MakeRock;
 
-        MakeRock = std::make_shared<Rock>(sf::Vector2f(rand()%65 + pos.x, rand() % 160 + pos.y));
+        MakeRock = std::make_shared<Rock>(sf::Vector2f( pos.x,pos.y));
         Rocks.push_back(MakeRock);       
-        setCollisionCheckEnabled(false);
+
     }
     if (otherGameObject.hasTag("movingRockFinal")) {
  
         otherGameObject.makeDead();
         RockPtr MakeRock;
 
-        MakeRock = std::make_shared<Rock>(sf::Vector2f(rand() % 65 + pos.x, rand() % 160 + pos.y));
+        sf::Vector2f rockPos = (Rock&)otherGameObject.getPos();
+
+        MakeRock = std::make_shared<Rock>(sf::Vector2f( pos.x, pos.y));
         Rocks.push_back(MakeRock);
 
         GameScene& scene = (GameScene&)GAME.getCurrentScene();
@@ -163,7 +165,7 @@ void UsePen::handleCollision(GameObject& otherGameObject)
             scene.changeUser();
         }
         scene.updateMouse();
-        setCollisionCheckEnabled(false);
+
     }
    
 }
